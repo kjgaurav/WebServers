@@ -1,0 +1,17 @@
+# yum -y install nginx
+# systemctl enable nginx
+# systemctl start nginx
+
+https://docs.google.com/document/d/1WMhRk-6_vd0Vn4M7yNJjLNqDR-4cfiDiZxXzggUFoqg/edit?usp=sharing
+
+sudo vim /etc/nginx/nginx.conf
+   upstream backend {
+       server ip-address-ws-1;
+       server ip-address-ws-2;
+   }
+ 
+   server {
+        location / {
+           proxy_pass http://backend;
+       }
+}
